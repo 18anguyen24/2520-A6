@@ -4,7 +4,6 @@ import math
 import random
 
 # Colors
-''' add colors you use as RGB values here '''
 RED = (255, 0, 0)
 GREEN = (52, 166, 36)
 BLUE = (29, 116, 248)
@@ -20,8 +19,11 @@ DAY_GREEN = (41, 129, 29)
 NIGHT_GREEN = (0, 64, 0)
 BRIGHT_YELLOW = (255, 244, 47)
 NIGHT_GRAY = (104, 98, 115)
-ck = (127, 33, 33)
-
+CK = (127, 33, 33)
+SIZE = (800, 600)
+TITLE = "Major League Soccer"
+DARKNESS = pygame.Surface(SIZE)
+SEE_THROUGH = pygame.Surface((800, 180))
 
 def draw_cloud(SEE_THROUGH, cloud_color, x, y):
     pygame.draw.ellipse(SEE_THROUGH, cloud_color, [x, y + 8, 10, 10])
@@ -35,8 +37,6 @@ def main():
     pygame.init()
 
     # Window
-    SIZE = (800, 600)
-    TITLE = "Major League Soccer"
     screen = pygame.display.set_mode(SIZE)
     pygame.display.set_caption(TITLE)
 
@@ -44,11 +44,9 @@ def main():
     clock = pygame.time.Clock()
     refresh_rate = 60
 
-    DARKNESS = pygame.Surface(SIZE)
     DARKNESS.set_alpha(200)
     DARKNESS.fill((0, 0, 0))
 
-    SEE_THROUGH = pygame.Surface((800, 180))
     SEE_THROUGH.set_alpha(150)
     SEE_THROUGH.fill((124, 118, 135))
 
@@ -72,11 +70,11 @@ def main():
 
     # Game loop
     done = False
-
     while not done:
         # Event processing (React to key presses, mouse clicks, etc.)
-        ''' for now, we'll just check to see if the X is clicked '''
+        # for now, we'll just check to see if the X is clicked
         for event in pygame.event.get():
+            # EXIT LOOP
             if event.type == pygame.QUIT:
                 done = True
             elif event.type == pygame.KEYDOWN:
@@ -86,7 +84,6 @@ def main():
                     day = not day
 
         # Game logic (Check for collisions, update points, etc.)
-        ''' leave this section alone for now '''
         if lights_on:
             light_color = YELLOW
         else:
@@ -112,8 +109,8 @@ def main():
 
         # Drawing code (Describe the picture. It isn't actually drawn yet.)
         screen.fill(sky_color)
-        SEE_THROUGH.fill(ck)
-        SEE_THROUGH.set_colorkey(ck)
+        SEE_THROUGH.fill(CK)
+        SEE_THROUGH.set_colorkey(CK)
 
         if not day:
             # stars
@@ -126,7 +123,7 @@ def main():
         pygame.draw.rect(screen, stripe_color, [0, 368, 800, 62])
         pygame.draw.rect(screen, stripe_color, [0, 492, 800, 82])
 
-        '''fence'''
+        #fence
         y = 170
         for x in range(5, 800, 30):
             pygame.draw.polygon(screen, NIGHT_GRAY, [[x + 2, y], [x + 2, y + 15], [x, y + 15], [x, y]])
@@ -320,12 +317,6 @@ def main():
         # DARKNESS
         if not day and not lights_on:
             screen.blit(DARKNESS, (0, 0))
-
-            # pygame.draw.polygon(screen, BLACK, [[200, 200], [50,400], [600, 500]], 10)
-
-        ''' angles for arcs are measured in radians (a pre-cal topic) '''
-        # pygame.draw.arc(screen, ORANGE, [100, 100, 100, 100], 0, math.pi/2, 1)
-        # pygame.draw.arc(screen, BLACK, [100, 100, 100, 100], 0, math.pi/2, 50)
 
         # Update screen (Actually draw the picture in the window.)
         pygame.display.flip()
