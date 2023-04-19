@@ -146,7 +146,7 @@ def main():
             pygame.draw.ellipse(screen, sky_color, [530, 45, 40, 40])
 
         for c in clouds:
-            draw_cloud(c[0], c[1])
+            draw_cloud(SEE_THROUGH, cloud_color, c[0], c[1])
         screen.blit(SEE_THROUGH, (0, 0))
 
         # out of bounds lines
