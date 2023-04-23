@@ -27,6 +27,8 @@ SEE_THROUGH = pygame.Surface((800, 180))
 SCREEN = pygame.display.set_mode(SIZE)
 LIGHT_COLOR = YELLOW
 
+
+#----------- drawing gaming objects -----------------
 def draw_cloud(SEE_THROUGH, cloud_color, x, y):
     pygame.draw.ellipse(SEE_THROUGH, cloud_color, [x, y + 8, 10, 10])
     pygame.draw.ellipse(SEE_THROUGH, cloud_color, [x + 6, y + 4, 8, 8])
@@ -243,6 +245,7 @@ def draw_flag():
     pygame.draw.line(SCREEN, BRIGHT_YELLOW, [660, 220], [665, 190], 3)
     pygame.draw.polygon(SCREEN, RED, [[668, 190], [675, 196], [665, 205]])
 
+#--------main-----------#
 def main():
     # Initialize game engine
     pygame.init()
