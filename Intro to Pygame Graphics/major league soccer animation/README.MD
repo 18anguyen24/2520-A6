@@ -19,3 +19,9 @@ This is a soccer field represented in pygames graphics
 - Flag draw
 
 ## Team members
+
+Member 1
+
+Member 2
+
+James Contreras
