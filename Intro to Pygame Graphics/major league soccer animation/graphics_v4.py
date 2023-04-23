@@ -3,7 +3,7 @@ import pygame
 import math
 import random
 
-# Colors
+# global variables(color RGB, size of game window, visibility, game title)
 RED = (255, 0, 0)
 GREEN = (52, 166, 36)
 BLUE = (29, 116, 248)
@@ -261,10 +261,11 @@ def main():
     SEE_THROUGH.fill((124, 118, 135))
 
 
-    # Config
+    # lighting settings
     lights_on = True
     day = True
 
+    #initialize stars and clouds
     stars = []
     for n in range(200):
         x = random.randrange(0, 800)
@@ -288,18 +289,20 @@ def main():
             if event.type == pygame.QUIT:
                 done = True
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_l:
+                if event.key == pygame.K_l:  #change between lighting settings
                     lights_on = not lights_on
-                elif event.key == pygame.K_d:
+                elif event.key == pygame.K_d:  #change between day settings
                     day = not day
 
-        # Game logic (Check for collisions, update points, etc.)
+        # ---Game logic (Check for collisions, update points, etc.)---
+
+        #change lightbulb color based on user input L
         global LIGHT_COLOR
         if lights_on:
             LIGHT_COLOR = YELLOW
         else:
             LIGHT_COLOR = SILVER
-
+        #change daytime color based on user input D
         if day:
             sky_color = BLUE
             field_color = GREEN
@@ -310,6 +313,10 @@ def main():
             field_color = DARK_GREEN
             stripe_color = NIGHT_GREEN
             cloud_color = NIGHT_GRAY
+
+        # DARKNESS
+        if not day and not lights_on:
+            SCREEN.blit(DARKNESS, (0, 0))
 
         for c in clouds:
             c[0] -= 0.5
@@ -335,18 +342,14 @@ def main():
         # goal
         draw_goal()
 
-        #lights
+        # lights
         draw_lights()
 
         # net
         draw_net()
 
-        #flag
+        # flag
         draw_flag()
-
-        # DARKNESS
-        if not day and not lights_on:
-            SCREEN.blit(DARKNESS, (0, 0))
 
         # Update SCREEN (Actually draw the picture in the window.)
         pygame.display.flip()
