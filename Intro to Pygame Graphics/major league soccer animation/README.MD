@@ -20,7 +20,7 @@ This is a soccer field represented in pygames graphics
 
 ## Team members
 
-Member 1
+Andrew Nguyen
 
 Member 2
 
