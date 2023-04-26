@@ -29,12 +29,12 @@ LIGHT_COLOR = YELLOW
 
 
 #----------- drawing gaming objects -----------------
-def draw_cloud(SEE_THROUGH, cloud_color, x, y):
-    pygame.draw.ellipse(SEE_THROUGH, cloud_color, [x, y + 8, 10, 10])
-    pygame.draw.ellipse(SEE_THROUGH, cloud_color, [x + 6, y + 4, 8, 8])
-    pygame.draw.ellipse(SEE_THROUGH, cloud_color, [x + 10, y, 16, 16])
-    pygame.draw.ellipse(SEE_THROUGH, cloud_color, [x + 20, y + 8, 10, 10])
-    pygame.draw.rect(SEE_THROUGH, cloud_color, [x + 6, y + 8, 18, 10])
+def draw_cloud(SEE_THROUGH, CLOUD_COLOR, x, y):
+    pygame.draw.ellipse(SEE_THROUGH, CLOUD_COLOR, [x, y + 8, 10, 10])
+    pygame.draw.ellipse(SEE_THROUGH, CLOUD_COLOR, [x + 6, y + 4, 8, 8])
+    pygame.draw.ellipse(SEE_THROUGH, CLOUD_COLOR, [x + 10, y, 16, 16])
+    pygame.draw.ellipse(SEE_THROUGH, CLOUD_COLOR, [x + 20, y + 8, 10, 10])
+    pygame.draw.rect(SEE_THROUGH, CLOUD_COLOR, [x + 6, y + 8, 18, 10])
 
 def draw_fence(sky_color, clouds, cloud_color, day):
     # fence
