@@ -36,6 +36,7 @@ def draw_cloud(SEE_THROUGH, CLOUD_COLOR, x, y):
     pygame.draw.ellipse(SEE_THROUGH, CLOUD_COLOR, [x + 20, y + 8, 10, 10])
     pygame.draw.rect(SEE_THROUGH, CLOUD_COLOR, [x + 6, y + 8, 18, 10])
 
+# Draw fence boundaries
 def draw_fence(sky_color, clouds, cloud_color, day):
     # fence
     y = 170
@@ -69,13 +70,15 @@ def draw_stars(sky_color, day, stars):
         for s in stars:
             pygame.draw.ellipse(SCREEN, WHITE, s)
 
+# Create field on screen
 def draw_field(field_color, stripe_color):
     pygame.draw.rect(SCREEN, field_color, [0, 180, 800, 420])
     pygame.draw.rect(SCREEN, stripe_color, [0, 180, 800, 42])
     pygame.draw.rect(SCREEN, stripe_color, [0, 264, 800, 52])
     pygame.draw.rect(SCREEN, stripe_color, [0, 368, 800, 62])
     pygame.draw.rect(SCREEN, stripe_color, [0, 492, 800, 82])
-    
+
+# Scoreboard outline    
 def draw_scoreboard_bounds():
     # out of bounds lines
     pygame.draw.line(SCREEN, WHITE, [0, 580], [800, 580], 5)
@@ -94,7 +97,8 @@ def draw_scoreboard_bounds():
     # score board
     pygame.draw.rect(SCREEN, BLACK, [300, 40, 200, 90])
     pygame.draw.rect(SCREEN, WHITE, [302, 42, 198, 88], 2)
-    
+
+# Draw goal of the soccer game
 def draw_goal():
         pygame.draw.rect(SCREEN, WHITE, [320, 140, 160, 80], 5)
         pygame.draw.line(SCREEN, WHITE, [340, 200], [460, 200], 3)
@@ -115,7 +119,8 @@ def draw_goal():
 
         # arc at the top of the goal box
         pygame.draw.arc(SCREEN, WHITE, [330, 280, 140, 40], math.pi, 2 * math.pi, 5)
-        
+    
+# Draw lights
 def draw_lights():
     # light pole 1
     pygame.draw.rect(SCREEN, GRAY, [150, 60, 20, 140])
@@ -154,6 +159,7 @@ def draw_lights():
     pygame.draw.ellipse(SCREEN, LIGHT_COLOR, [670, 20, 20, 20])
     pygame.draw.line(SCREEN, GRAY, [590, 20], [690, 20], 2)
 
+# Draw soccer net
 def draw_net():
     pygame.draw.line(SCREEN, WHITE, [325, 140], [341, 200], 1)
     pygame.draw.line(SCREEN, WHITE, [330, 140], [344, 200], 1)
@@ -227,6 +233,7 @@ def draw_net():
     pygame.draw.line(SCREEN, WHITE, [335, 192], [465, 192], 1)
     pygame.draw.line(SCREEN, WHITE, [335, 196], [465, 196], 1)
 
+# Draw flag for game
 def draw_flag():
     # stands right
     pygame.draw.polygon(SCREEN, RED, [[680, 220], [800, 340], [800, 290], [680, 180]])
